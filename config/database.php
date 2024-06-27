@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -61,6 +61,22 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+        ],
+
+        'mongodb' => [
+            'driver'   => 'mongodb',
+            // 'host'     => env('MONGO_DB_HOST', 'localhost'),
+            'host'     => [
+                'ac-0mpwidh-shard-00-00.blx5bdf.mongodb.net:27017',
+                'ac-0mpwidh-shard-00-01.blx5bdf.mongodb.net:27017',
+                'ac-0mpwidh-shard-00-02.blx5bdf.mongodb.net:27017',
+            ],
+            'port'     => env('MONGO_DB_PORT', 27017),
+            'database' => env('MONGO_DB_DATABASE'),
+            'username' => env('MONGO_DB_USERNAME'),
+            'password' => env('MONGO_DB_PASSWORD'),
+            'dsn' => env('MONGO_DB_URL', "mongodb+srv://username:password@<atlas-cluster-uri>/myappdb?retryWrites=true&w=majority"),
+            'options'  => []
         ],
 
         'pgsql' => [
