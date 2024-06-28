@@ -21,6 +21,7 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'is_admin'
     ];
 
     /**
@@ -42,4 +43,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function isAdmin()
+    {
+        return auth()->check() && auth()->user()->is_admin;
+    }
 }
