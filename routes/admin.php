@@ -26,10 +26,6 @@ Route::name('admin.')->group(function () {
     })->middleware(['auth', 'verified'])->name('dashboard');
 
     Route::middleware('auth')->group(function () {
-        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
         // users
         Route::get('/users/trashed', [UserController::class, 'trashed'])->name('users.trashed');
         Route::patch('/users/{user}/restore', [UserController::class, 'restore'])->name('users.restore')->withTrashed();
@@ -39,4 +35,10 @@ Route::name('admin.')->group(function () {
 
     require __DIR__.'/auth.php';
 
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
