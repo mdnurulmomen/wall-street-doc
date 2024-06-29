@@ -38,11 +38,11 @@
                             <p class="font-bold">{{ __("Users List") }}</p>
 
                             <div>
-                                <x-hyperlink-yellow-button href="{{ route('admin.users.trashed') }}">
+                                <x-hyperlink-yellow-button href="{{ route('users.trashed') }}">
                                     {{ __('Trashed Users') }}
                                 </x-hyperlink-yellow-button>
 
-                                <x-hyperlink-blue-button href="{{ route('admin.users.create') }}">
+                                <x-hyperlink-blue-button href="{{ route('users.create') }}">
                                     {{ __('Add New User') }}
                                 </x-hyperlink-blue-button>
                             </div>
@@ -65,11 +65,11 @@
                                             <td class="px-4 py-2 capitalize">{{ $user->username }}</td>
                                             <td class="px-4 py-2">{{ $user->is_admin ? 'Admin' : 'Regular User' }}</td>
                                             <td class="px-4 py-2">
-                                                <x-hyperlink-lime-button href="{{ route('admin.users.edit', $user->id) }}">
+                                                <x-hyperlink-lime-button href="{{ route('users.edit', $user->id) }}">
                                                     {{ __('Edit') }}
                                                 </x-hyperlink-lime-button>
 
-                                                <form  action="{{ route('admin.users.destroy', $user->id) }}"  method="POST"  onsubmit="return confirm('{{ trans('Want to delete ? ') }}');"  style="display: inline-block;">
+                                                <form  action="{{ route('users.destroy', $user->id) }}"  method="POST"  onsubmit="return confirm('{{ trans('Want to delete ? ') }}');"  style="display: inline-block;">
                                                     <input  type="hidden"  name="_method"  value="DELETE">
                                                     <input  type="hidden"  name="_token"  value="{{ csrf_token() }}">
                                                     <input  type="submit"  class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800 ml-1" value="Delete">

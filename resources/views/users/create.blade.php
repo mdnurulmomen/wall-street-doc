@@ -11,7 +11,7 @@
                 <div class=text-gray-900">
                     <div  class="bg-white border-b border-gray-200">
                         <div class="relative overflow-x-auto p-6">
-                            <form method="POST" action="{{ route('admin.users.store') }}">
+                            <form method="POST" action="{{ route('users.store') }}">
                                 @csrf
 
                                 <!-- User Name -->

@@ -22,7 +22,7 @@
                 </a> --}}
 
                 <h1>
-                    {{ (request()->routeIs('admin.*') ? 'Admin': 'User') . (request()->routeIs('*.register') ? ' Registration': ' Login') }}
+                    {{ 'User '. (request()->routeIs('*.register') ? 'Registration': 'Login') }}
                 </h1>
             </div>
 

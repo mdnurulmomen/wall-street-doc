@@ -37,7 +37,7 @@
                         <div  class="p-6 mb-6 flex justify-between">
                             <p class="font-bold">{{ __("Deleted Users List") }}</p>
 
-                            <x-hyperlink-blue-button href="{{ route('admin.users.index') }}">
+                            <x-hyperlink-blue-button href="{{ route('users.index') }}">
                                 {{ __('User List') }}
                             </x-hyperlink-blue-button>
                         </div>
@@ -63,13 +63,13 @@
                                             </td>
                                             <td class="px-4 py-2">{{ $user->is_admin ? 'Admin' : 'Regular User' }}</td>
                                             <td class="px-4 py-4">
-                                                <form  action="{{ route('admin.users.delete', $user->id) }}"  method="POST"  onsubmit="return confirm('{{ trans('Want to delete permanently ? ') }}');"  style="display: inline-block;">
+                                                <form  action="{{ route('users.delete', $user->id) }}"  method="POST"  onsubmit="return confirm('{{ trans('Want to delete permanently ? ') }}');"  style="display: inline-block;">
                                                     <input  type="hidden"  name="_method"  value="DELETE">
                                                     <input  type="hidden"  name="_token"  value="{{ csrf_token() }}">
                                                     <input  type="submit"  class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800 ml-1" value="Permanent Delete">
                                                 </form>
 
-                                                <form  action="{{ route('admin.users.restore', $user->id) }}"  method="POST"  onsubmit="return confirm('{{ trans('Want to restore ? ') }}');"  style="display: inline-block;">
+                                                <form  action="{{ route('users.restore', $user->id) }}"  method="POST"  onsubmit="return confirm('{{ trans('Want to restore ? ') }}');"  style="display: inline-block;">
                                                     <input  type="hidden"  name="_method"  value="PATCH">
                                                     <input  type="hidden"  name="_token"  value="{{ csrf_token() }}">
                                                     <input  type="submit"  class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800 ml-1" value="Restore">

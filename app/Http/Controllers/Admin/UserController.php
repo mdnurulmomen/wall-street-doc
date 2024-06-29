@@ -43,7 +43,7 @@ class UserController extends Controller
 
             $user = $this->userServiceInterface->store($request->validated());
 
-            return redirect()->route('admin.users.index')
+            return redirect()->route('users.index')
                 ->with('message', 'New user has been created!');
 
         } catch (\Throwable $th) {
@@ -72,7 +72,7 @@ class UserController extends Controller
 
             $this->userServiceInterface->update($request->validated(), $user);
 
-            return redirect()->route('admin.users.index')
+            return redirect()->route('users.index')
             ->with('message', 'User has been updated!');
 
         } catch (\Throwable $th) {

@@ -13,7 +13,7 @@
 
                     @if (auth()->user()->isAdmin())
 
-                    <x-hyperlink-blue-button href="{{ route('admin.users.index') }}">
+                    <x-hyperlink-blue-button href="{{ route('users.index') }}">
                         {{ __('List Users') }}
                     </x-hyperlink-blue-button>
 
