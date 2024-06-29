@@ -83,6 +83,8 @@
                                         </tr>
 
                                     @endforelse
+
+                                    {{ $users->links() }}
                                 </tbody>
                             </table>
                         </div>

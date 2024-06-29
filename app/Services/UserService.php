@@ -11,7 +11,7 @@ class UserService implements UserServiceInterface
     public function index()
     {
         return User::whereKeyNot(auth()->id())
-        ->orderBy('updated_at', 'DESC')->get();
+        ->orderBy('updated_at', 'DESC')->paginate(15);
     }
 
     public function store(array $data)
@@ -32,7 +32,7 @@ class UserService implements UserServiceInterface
 
     public function trashed()
     {
-        return User::onlyTrashed()->orderBy('updated_at', 'DESC')->get();
+        return User::onlyTrashed()->orderBy('updated_at', 'DESC')->paginate(15);
     }
 
     public function restore($user)

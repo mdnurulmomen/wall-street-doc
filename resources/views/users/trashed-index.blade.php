@@ -82,6 +82,8 @@
                                             <td class="col-span-4 text-red-600 text-center p-4">No User Found</td>
                                         </tr>
                                     @endforelse
+
+                                    {{ $users->links() }}
                                 </tbody>
                             </table>
                         </div>
