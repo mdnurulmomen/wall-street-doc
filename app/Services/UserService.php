@@ -10,7 +10,7 @@ class UserService implements UserServiceInterface
 
     public function index()
     {
-        return User::where('id', '!=', auth()->id())
+        return User::whereKeyNot(auth()->id())
         ->orderBy('updated_at', 'DESC')->get();
     }
 
@@ -44,5 +44,4 @@ class UserService implements UserServiceInterface
     {
         $user->forceDelete();
     }
-
 }
