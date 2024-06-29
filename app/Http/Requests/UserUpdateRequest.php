@@ -29,6 +29,7 @@ class UserUpdateRequest extends FormRequest
                 'unique:users,email,'.$this->route('user')->id
             ],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'is_admin' => 'required|boolean'
         ];
     }
 }
