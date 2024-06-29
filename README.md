@@ -36,19 +36,11 @@ Run the database migrations
 
     php artisan migrate
 
-Run the Regular-User seeder
-
-    User:factory()->create()
-
-Run the Admin seeder
-
-    User:factory()->isAdmin()->create()
-
 Start the local development server and you're done
 
     php artisan serve
 
-You can now access the server at http://localhost:8000/login or http://localhost:8000/login
+You can now access the server at http://localhost:8000/register for new user registration
 
 ----------
 
