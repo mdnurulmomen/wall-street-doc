@@ -25,7 +25,7 @@ Route::name('admin.')->group(function () {
         return view('dashboard');
     })->middleware(['auth', 'verified'])->name('dashboard');
 
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth', 'is-admin'])->group(function () {
         // users
         Route::get('/users/trashed', [UserController::class, 'trashed'])->name('users.trashed');
         Route::patch('/users/{user}/restore', [UserController::class, 'restore'])->name('users.restore')->withTrashed();
