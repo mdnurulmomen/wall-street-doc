@@ -49,11 +49,12 @@
                         </div>
 
                         <div class="relative overflow-x-auto">
-                            <table class="w-full text-sm text-center table-auto border border-gray-300 rounded-lg text-gray-500 dark:text-gray-400">
+                            <table class="table-auto w-full text-sm text-center table-auto border border-gray-300 rounded-lg text-gray-500 dark:text-gray-400">
                                 <thead>
                                     <tr class="text-xs font-medium text-center text-gray-700 bg-gray-100">
                                         <th class="px-4 py-2">#</th>
                                         <th class="px-4 py-2">Username</th>
+                                        <th class="px-4 py-2">Type</th>
                                         <th class="px-4 py-2">Actions</th>
                                     </tr>
                                 </thead>
@@ -61,7 +62,8 @@
                                     @forelse ($users as $key => $user)
                                         <tr class="border-b border-gray-300">
                                             <td class="px-4 py-2">{{ $key+1 }}</td>
-                                            <td class="px-4 py-2">{{ ucfirst($user->username) }}</td>
+                                            <td class="px-4 py-2 capitalize">{{ $user->username }}</td>
+                                            <td class="px-4 py-2">{{ $user->is_admin ? 'Admin' : 'Regular User' }}</td>
                                             <td class="px-4 py-2">
                                                 <x-hyperlink-lime-button href="{{ route('admin.users.edit', $user->id) }}">
                                                     {{ __('Edit') }}
@@ -76,9 +78,10 @@
                                         </tr>
 
                                     @empty
-                                        <tr>
-                                            <td class="col-span-3 text-red-600 text-center p-4">No User Found</td>
+                                        <tr class="border-b border-gray-300">
+                                            <td class="col-span-4 text-red-600 text-center px-4 py-2">No User Found</td>
                                         </tr>
+
                                     @endforelse
                                 </tbody>
                             </table>

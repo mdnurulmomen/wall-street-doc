@@ -44,29 +44,25 @@
 
                         <div class="relative overflow-x-auto">
                             <table class="w-full text-sm text-center rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                    <tr class="grid grid-cols-3 bg-slate-300">
-                                        <th scope="col" class="px-6 py-3">
-                                            #
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Username
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Actions
-                                        </th>
+                                <thead>
+                                    <tr class="text-xs font-medium text-center text-gray-700 bg-gray-100">
+                                        <th class="px-4 py-2">#</th>
+                                        <th class="px-4 py-2">Username</th>
+                                        <th class="px-4 py-2">Type</th>
+                                        <th class="px-4 py-2">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @forelse ($users as $key => $user)
-                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 grid grid-cols-3">
-                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <tr class="border-b border-gray-300">
+                                            <th scope="row" class="px-4 py-2">
                                                 {{ $key+1 }}
                                             </th>
-                                            <td class="px-6 py-4 capitalize">
+                                            <td class="px-4 py-2 capitalize">
                                                 {{ $user->username }}
                                             </td>
-                                            <td class="px-6 py-4">
+                                            <td class="px-4 py-2">{{ $user->is_admin ? 'Admin' : 'Regular User' }}</td>
+                                            <td class="px-4 py-4">
                                                 <form  action="{{ route('admin.users.delete', $user->id) }}"  method="POST"  onsubmit="return confirm('{{ trans('Want to delete permanently ? ') }}');"  style="display: inline-block;">
                                                     <input  type="hidden"  name="_method"  value="DELETE">
                                                     <input  type="hidden"  name="_token"  value="{{ csrf_token() }}">
@@ -83,7 +79,7 @@
 
                                         @empty
                                         <tr>
-                                            <td class="col-span-3 text-red-600 text-center p-4">No User Found</td>
+                                            <td class="col-span-4 text-red-600 text-center p-4">No User Found</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
