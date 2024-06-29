@@ -32,7 +32,7 @@ class UserUpdateRequest extends FormRequest
                 'required', 'string', 'lowercase', 'email', 'max:255',
                 Rule::unique('users','email')->ignore($this->route('user')->id, '_id')
             ],
-            'is_admin' => 'required|boolean'
+            'is_admin' => 'nullable|boolean'
         ];
     }
 }
