@@ -87,7 +87,7 @@ Run the laravel development server
     php artisan serve
 
 Refresh the database migrations 
-(**Set the MongoDB connection & credentials mentioned in .env before migrating**)
+(**Make sure MongoDB connection is configured at .env before migrating**)
 
     php artisan migrate:refresh
 
