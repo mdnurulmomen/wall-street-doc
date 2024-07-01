@@ -31,8 +31,16 @@ Generate a new application key
 
     php artisan key:generate
 
-Run the database migrations 
-(**Set the MongoDB connection & credentials mentioned in .env before migrating**)
+Install the PHP extension for MongoDB. Run the following command (*Optioal*):
+
+```
+sudo pecl install mongodb
+```
+
+**You will also need to ensure that the mongodb extension is enabled in your php.ini file.**
+
+Now, Run the database migrations 
+(**Configure the MongoDB connection & credentials mentioned in .env before migrating**)
 
     php artisan migrate
 
