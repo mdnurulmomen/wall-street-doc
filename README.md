@@ -39,8 +39,8 @@ sudo pecl install mongodb
 
 **You will also need to ensure that the mongodb extension is enabled in your php.ini file.**
 
-Now, Run the database migrations 
-(**Configure the MongoDB connection & credentials mentioned in .env before migrating**)
+Now, Run the database migrations.
+(**Before migration, make sure MongoDB connection is configured**)
 
     php artisan migrate
 
@@ -87,7 +87,7 @@ Run the laravel development server
     php artisan serve
 
 Refresh the database migrations 
-(**Make sure MongoDB connection is configured at .env before migrating**)
+(**Make sure MongoDB connection is configured**)
 
     php artisan migrate:refresh
 
