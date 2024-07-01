@@ -22,7 +22,7 @@
                 </a> --}}
 
                 <h1>
-                    {{ 'User '. (request()->routeIs('*.register') ? 'Registration': 'Login') }}
+                    {{ 'User '. (Illuminate\Support\Str::endsWith(url()->current(), 'register') ? 'Registration': 'Login') }}
                 </h1>
             </div>
 
