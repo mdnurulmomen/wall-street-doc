@@ -62,9 +62,9 @@ You can now access the server at http://localhost:8000/register for new user reg
 ## Folders
 
 - `app` - Contains all the Eloquent models
-- `app/Http/Controllers/Api/V1` - Contains all the api controllers
+- `app/Http/Controllers/Admin` - Contains controllers for Admin
 - `app/Http/Middleware` - Contains the JWT auth middleware
-- `app/Http/Requests/Api` - Contains all the api form requests
+- `app/Http/Requests` - Contains all the form-requests
 - `config` - Contains all the application configuration files
 - `database/factories` - Contains the model factory for all the models
 - `database/migrations` - Contains all the database migrations
