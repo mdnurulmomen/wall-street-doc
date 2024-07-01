@@ -48,7 +48,7 @@ Start the local development server and you're done
 
     php artisan serve
 
-You can now access the server at http://localhost:8000/register for new user registration
+You can now access the server at http://localhost:8000/register for new user registration and http://localhost:8000/login for signing in.
 
 ----------
 
